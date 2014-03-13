@@ -1,0 +1,39 @@
+import java.util.*;
+
+public class BinarySearch{
+
+    public static int binsearch(int[] array, int n){
+	Arrays.sort(array);
+	int lowest = 0;
+	int highest = array.length-1;
+	int mid;
+	while(highest >= lowest){
+	    mid = (lowest+highest)/2;
+	    if(array[mid] == n){
+		return mid;
+	    }
+	    if(array[mid] < n){
+		lowest = mid + 1;
+	    }
+	    if(array[mid] > n){
+		highest = mid - 1;
+	    }
+	    return -1; //not found
+	}
+    }
+
+    public static int binsearch(int n, int low, int high, int[] array){
+	int mid = (low+high)/2;
+	if(low > high){
+	    return -1; //not found
+	}
+	if(array[mid] < n){
+	    return binsearch(n, mid+1, high, array);
+	}
+	if(array[mid] > n){
+	    return binsearch(n, low, mid-1, array);
+	}else{
+	    return mid;
+	}
+    }
+}

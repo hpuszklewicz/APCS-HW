@@ -1,0 +1,43 @@
+public class Person implements Comparable{
+    private int age;
+    private String name;
+
+    public int getAge(){
+	return age;
+    }
+
+    public String getName(){
+	return name;
+    }
+
+    public int compareTo(Person other){
+	if(age < other.getAge()){
+	    return -1;
+	}
+	else if(age == other.getAge()){
+	    return 0;
+	}
+	else if(age > other.getAge()){
+	    return 1;
+	}
+    }
+
+    public int compareTo(Person other){
+	if(name.compareTo(other.getName())){
+
+
+
+    public String getName(){
+	return name;
+    }
+
+    public int compareTo(Person other){
+        return age - other.getAge();
+    }
+
+    public int compareTo(Person other){
+	if(name.compareTo(other.getName())){
+
+
+
+			 
