@@ -1,6 +1,6 @@
 public class MyLinkedList{
     private Node head;
-    private int length;
+    private int length; //updated by add/remove
 
     public MyLinkedList(){
 	length = 0;
@@ -10,10 +10,10 @@ public class MyLinkedList{
     public String toString(){
 	Node tmp = head.getNext();
 	String ans = "";
-	ans += head.getData();
+	ans += head.getData(); //add head data
 	while(tmp != null){
-	    ans += ", " + tmp.getData();
-	    tmp = tmp.getNext();
+	    ans += ", " + tmp.getData(); //add next data
+	    tmp = tmp.getNext(); //change tmp until null
 	}
 
 	return ans;
