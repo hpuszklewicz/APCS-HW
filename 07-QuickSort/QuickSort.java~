@@ -10,7 +10,7 @@ public class QuickSort{
     }
 
     //split left right
-    public static void partition(int[] ar, int l, int r){
+    public static void partition(int[] ar, int pivot, int low, int high){
 	int left = low;
 	int right = high;
 	for(int i = 0; i < ar.length; i++){

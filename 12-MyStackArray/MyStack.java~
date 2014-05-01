@@ -1,0 +1,24 @@
+public class MyStack{
+    private int top;
+    private String[] stack;
+    
+    public MyStack(){
+	stack = new String[10];
+	top = 0;
+    }
+
+    public void push(String s){
+	try{
+	stack[top + 1] = s;
+	top++;
+	}catch(ArrayIndexOutofBoundsException e){
+	    String[] doubled = new String[stack.length * 2];
+	    for(int i = 0; i < stack.lenth; i++){
+		doubled[i] = stack[i];
+	    }
+	    stack = doubled;
+	    push(s);
+	}
+    }
+}
+	

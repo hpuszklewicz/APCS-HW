@@ -1,0 +1,82 @@
+public class MyStack{
+    private int top;
+    private String[] stack;
+    
+    //everything works fine, constructor is a bit ugly need to fix
+
+    public MyStack(){
+	stack = new String[10];
+	top = -1;
+    }
+
+    public class StackException extends RuntimeException{
+	public StackException(String message){
+	    super(message);
+	}
+    }
+
+    public void push(String s){
+	try{
+	    stack[top + 1] = s;
+	    top++;
+	}catch(ArrayIndexOutOfBoundsException e){
+	    String[] doubled = new String[stack.length * 2];
+	    for(int i = 0; i < stack.length; i++){
+		doubled[i] = stack[i];
+	    }
+	    stack = doubled;
+	    push(s);
+	}
+    }
+
+    public String pop(){
+	if(top - 1 < 0){
+	    throw new StackException("Stack already at minimum size.");
+	}else{
+	    String info = stack[top];
+	    stack[top] = null;
+	    top--;
+	    return info;
+	}
+    }
+
+    public boolean isEmpty(){
+	if(top == 0 && stack[top] == null){
+	    return true;
+	}else{
+	    return false;
+	}
+    }
+
+    public String peek(){
+	return stack[top];
+    }
+
+    public int size(){
+	return stack.length;
+    }
+
+    public String toString(){
+	String info = "";
+        for(int i = top - 1; i > 0; i--){
+	    info += stack[i] + ", ";
+	}
+	return info;
+    }
+
+    //reverse polish notation/postfix notation
+    //prefix(polish notation, functional, no order of operations)
+    //infix(regular, needs order of operations, great for algebra)
+    //postfix(rpn, 3 4 +)
+    //ex: 3 top stack, 4 top stack, then pop them. 
+    //if number -> push on stack, if operator -> pop the top 2 items, calculate the result, and push the result on top stack
+    //pdf and postcript based on postfix
+    //RPN CALCULATOR PROJECT: STAX BRO 
+    //BASIC LOOP: READ INPUT AS STRING (SCANNER YEEE)
+    //IF THE INPUT IS +, - , *, / POP TWICE, CALC, PUSH ONCE (DOUBLE.PARSEDOUBLE)
+    //parse the stringzzzzzzzzzzzzz
+    //lit
+
+
+}
+	
