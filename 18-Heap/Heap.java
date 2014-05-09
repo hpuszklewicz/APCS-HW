@@ -2,6 +2,12 @@ public class Heap{
     private int[] data;
     private int size;
     private int last;
+    
+    public class HeapRuntimeException extends RuntimeException{
+	public HeapRuntimeException(String message){
+	    super(message);
+	}
+    }
 
     public Heap(){
 	data = new int[10];
@@ -17,7 +23,7 @@ public class Heap{
 
     public void insert(int i){
 	if(last + 1 > size){
-	    return; 
+	    throw new HeapRuntimeException("Heap overflow.");
 	}else{
 	    last++;
 	    data[last] = i;
@@ -31,7 +37,7 @@ public class Heap{
 	while(i > 1){
 	    int parent = i/2;
 	    if(data[parent] >= data[i]){
-		break; 
+		break;
 	    }
 	    int tmp = data[i];
 	    data[i] = data[parent];
@@ -57,7 +63,7 @@ public class Heap{
 
     public int remove(){
 	if(last == 0){
-	    return -9999;
+	    throw new HeapRuntimeException("No data remaining in heap.");
 	}else{
 	    int min = data[last];
 	    data[last] = data[1];
